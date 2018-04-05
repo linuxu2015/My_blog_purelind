@@ -27,5 +27,5 @@ class PostForm(FlaskForm):
     body = PageDownField("What's on your mind?")
     body_html = TextAreaField("Html")
     outline = StringField('Outline', validators=[Length(0, 64)])
-    created = DateTimeField('Created')
+    # created = DateTimeField('Created')
     submit = SubmitField('Submit')
