@@ -9,7 +9,7 @@ from .. import db
 from ..models import Post
 
 from markdown import markdown
-from markdown.extensions.wikilinks import  WikiLinkExtension
+from markdown.extensions.wikilinks import WikiLinkExtension
 
 
 @main.route('/', methods=['GET', 'POST'])
@@ -135,7 +135,7 @@ def create():
                                               'markdown.extensions.nl2br', \
                                               'markdown.extensions.tables'])
         post.outline = form.outline.data
-        post.created = form.created.data
+        # post.created = form.created.data
         db.session.add(post)
         return redirect(url_for('main.admin'))
     try:
@@ -143,6 +143,3 @@ def create():
     except ImportError:
         db.session.rollback
     return render_template('create_post.html', form=form)
-
-
-
