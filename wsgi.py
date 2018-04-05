@@ -7,7 +7,7 @@ import datetime
 # Create an application instance that web servers can use. We store it as
 # "application" (the wsgi default) and also the much shorter and convenient
 # "app".
-application = app = create_app('default')
+application = app = create_app('production')
 
 @app.context_processor
 def template_extras():
