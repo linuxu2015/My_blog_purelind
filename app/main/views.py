@@ -8,6 +8,9 @@ from .forms import EditPostForm, PostForm
 from .. import db
 from ..models import Post
 
+from markdown import markdown
+from markdown.extensions.wikilinks import  WikiLinkExtension
+
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
@@ -80,7 +83,20 @@ def edit(id):
     if form.validate_on_submit():
         post.title = form.title.data
         post.body = form.body.data
-        post.body_html = form.body_html.data
+        post.body_html = markdown(form.body.data, output_format='html5', \
+                                  extensions=['markdown.extensions.toc', 'markdown.extensions.codehilite', \
+                                              WikiLinkExtension(base_url='https://en.wikipedia.org/wiki/', \
+                                                                end_url='#Hyperlinks_in_wikis'), \
+                                              'markdown.extensions.sane_lists', \
+                                              'markdown.extensions.abbr', \
+                                              'markdown.extensions.attr_list', \
+                                              'markdown.extensions.def_list', \
+                                              'markdown.extensions.fenced_code', \
+                                              'markdown.extensions.footnotes', \
+                                              'markdown.extensions.smart_strong', \
+                                              'markdown.extensions.meta', \
+                                              'markdown.extensions.nl2br', \
+                                              'markdown.extensions.tables'])
         post.outline = form.outline.data
         post.created = form.created.data
         post.modified = form.modified.data
@@ -104,7 +120,20 @@ def create():
     if form.validate_on_submit():
         post.title = form.title.data
         post.body = form.body.data
-        post.body_html = form.body_html.data
+        post.body_html = markdown(form.body.data, output_format='html5', \
+                                  extensions=['markdown.extensions.toc', 'markdown.extensions.codehilite', \
+                                              WikiLinkExtension(base_url='https://en.wikipedia.org/wiki/', \
+                                                                end_url='#Hyperlinks_in_wikis'), \
+                                              'markdown.extensions.sane_lists', \
+                                              'markdown.extensions.abbr', \
+                                              'markdown.extensions.attr_list', \
+                                              'markdown.extensions.def_list', \
+                                              'markdown.extensions.fenced_code', \
+                                              'markdown.extensions.footnotes', \
+                                              'markdown.extensions.smart_strong', \
+                                              'markdown.extensions.meta', \
+                                              'markdown.extensions.nl2br', \
+                                              'markdown.extensions.tables'])
         post.outline = form.outline.data
         post.created = form.created.data
         db.session.add(post)
