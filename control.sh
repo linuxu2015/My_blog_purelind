@@ -6,7 +6,7 @@ cd $WORKSPACE
 mkdir -p var
 
 module=portal
-app=weixinapi
+app=app
 pidfile=var/app.pid
 logfile=var/app.log
 
@@ -22,7 +22,7 @@ function check_pid() {
 }
 
 function start() {
-    source env/bin/activate
+    source venv/bin/activate
     hash gunicorn 2>&- || { echo >&2 "I require gunicorn but it's not installed.  Aborting."; exit 1; }
 
     check_pid
