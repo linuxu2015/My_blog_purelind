@@ -2,96 +2,98 @@
 <html>
 
 {% block head %}
-<head>
+    <head>
 
-    <title>{% block title %}Purelind's blog{% endblock %}</title>
-    {% block metas %}
-    <meta name="description" content="Be youself."/>
-    <meta name="keywords" content="website keywords, website keywords"/>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    {% endblock %}
+        <title>{% block title %}Purelind's blog{% endblock %}</title>
+        {% block metas %}
+            <meta name="description" content="Be youself."/>
+            <meta name="keywords" content="website keywords, website keywords"/>
+            <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+            <meta name="viewport"
+                  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 
-{#    <link rel="shortcut icon" href="{{ url_for('static', filename='CSS3_two/images/favicon.ico') }}">#}
-    <link rel="stylesheet" href="{{ url_for('static', filename='CSS3_two/css/style.css') }}">
-    <script src="../static/CSS3_two/js/moment.min.js"></script>
+        {% endblock %}
 
-    {% block pagescss %}{% endblock %}
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        {#    <link rel="shortcut icon" href="{{ url_for('static', filename='CSS3_two/images/favicon.ico') }}">#}
+        <link rel="stylesheet" href="{{ url_for('static', filename='CSS3_two/css/style.css') }}">
+        <script src="../static/CSS3_two/js/moment.min.js"></script>
 
-        ga('create', 'UA-104753028-1', 'auto');
-        ga('send', 'pageview');
+        {% block pagescss %}{% endblock %}
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    </script>
+            ga('create', 'UA-104753028-1', 'auto');
+            ga('send', 'pageview');
 
-</head>
+        </script>
+
+    </head>
 {% endblock %}
 
 {% block body %}
-<body>
+    <body>
 
     {% block navheader %}
-    <nav class="nav">
-        <div class="nav__left" id="nav">
-            <a href="/" >Home</a>
-{#            <a href="/about">About</a>#}
-            <a href="/archives">Archives</a>
+        <nav class="nav">
+            <div class="nav__left" id="nav">
+                <a href="/">Home</a>
+                {#            <a href="/about">About</a>#}
+                <a href="/archives">Archives</a>
 
-        </div>
+            </div>
 
-        <div class="nav__right" id="nav" style="">
-{#            <a target="_blank" href="https://github.com/purelind" class="link-github">Github</a>#}
-{#            <a target="_blank" href="https://twitter.com/purelind" class="link-twitter">Twitter</a>#}
-{#            <a target="_blank" href="https://www.instagram.com/purelind/" class="link-instagram">Instagram</a>#}
-            <a href="mailto:linuxu2015@gmail.com" class="link-email">Email</a>
-        </div>
-    </nav>
+            <div class="nav__right" id="nav" style="">
+                {#            <a target="_blank" href="https://github.com/purelind" class="link-github">Github</a>#}
+                {#            <a target="_blank" href="https://twitter.com/purelind" class="link-twitter">Twitter</a>#}
+                {#            <a target="_blank" href="https://www.instagram.com/purelind/" class="link-instagram">Instagram</a>#}
+                <a href="mailto:linuxu2015@gmail.com" class="link-email">Email</a>
+            </div>
+        </nav>
 
         {% block intro_header %}
-    <header class="intro mar-tb-7 ">
-        <h1 class="intro__head">
-            Linuxu's Blog
+            <header class="intro mar-tb-7 ">
+                <h1 class="intro__head">
+                    Linuxu's Blog
                     <div class="intro__sub">
-                        <p >Just do it ,time flies!</p>
+                        <p>Just do it ,time flies!</p>
                     </div>
-        </h1>
-    </header>
-            {% endblock %}
+                </h1>
+            </header>
+        {% endblock %}
     {% endblock %}
 
     {% block sitecontent %}
         {% block content %}
-            {% endblock %}
+        {% endblock %}
         {% block postcontent %}
-            {% endblock %}
+        {% endblock %}
         {% block formcontent %}
-            {% endblock %}
+        {% endblock %}
     {% endblock %}
 
-  <footer id="site-footer" style="padding-bottom: 20px">
-    <p>
-      <a href="/">Home</a> |
-      <a href="/archives">Archives</a> |
-{#      <a href="/about">About</a> |#}
-      <a href="/projects">Projects</a> |
-    </p>
-    <p>
-      <a href="https://github.com/purelind/My_blog_purelind">&copy;2018 Purelind</a>
-    </p>
-  </footer>
+    <footer id="site-footer" style="padding-bottom: 20px">
+        <p>
+            <a href="/">Home</a> |
+            <a href="/archives">Archives</a> |
+            {#      <a href="/about">About</a> |#}
+            <a href="/projects">Projects</a> |
+        </p>
+        <p>
+            <a href="https://github.com/purelind/My_blog_purelind">&copy;2018 Purelind</a>
+        </p>
+    </footer>
 
 
-
-</body>
+    </body>
 {% endblock %}
 </html>
