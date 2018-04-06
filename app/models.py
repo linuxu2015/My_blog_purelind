@@ -63,7 +63,7 @@ class User(UserMixin, db.Model):  # UserMixin类: is_authenticated(), is_active(
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
     password_hash = db.Column(db.String(128))
     confirmed = db.Column(db.Boolean, default=False)
-    last_seen = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    last_seen = db.Column(db.DateTime, index=True, default=datetime.now)
     avatar_hash = db.Column(db.String(32))
     posts = db.relationship('Post', backref='author', lazy='dynamic')
 
@@ -146,7 +146,6 @@ class Post(db.Model):
 
     created = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     modified = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-
     """db.ForeignKey()的参数'catefory.id'表明，这列的值是category表中行的id值
         文章对分类：一对多关系,将一个记录和一组记录联系在一起;
         实现这种关系时,需要在‘多’一侧加入一个外键,指向‘一’一侧noew联接的记录"""
