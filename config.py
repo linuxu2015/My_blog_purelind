@@ -19,8 +19,8 @@ class Config:
     MAIL_USE_TLS = True
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
-    BLOG_MAIL_SUBJECT_PREFIX = '[purelind\' Blog]'
-    BLOG_MAIL_SENDER = 'Purelind\' Blog Admin <Admin@purelind.com>'
+    BLOG_MAIL_SUBJECT_PREFIX = '[Linuxu\' Blog]'
+    BLOG_MAIL_SENDER = 'Linuxu\' Blog Admin <Admin@linuxu.com>'
     BLOG_ADMIN = os.environ.get('BLOG_ADMIN')
     BLOG_POSTS_PER_PAGE = 10
 
