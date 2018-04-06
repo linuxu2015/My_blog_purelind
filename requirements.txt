@@ -1,5 +1,4 @@
 aiofcm==1.0
-aioopenssl==0.3.1
 aiosasl==0.3.1
 aioxmpp==0.9.0
 alembic==0.9.3
