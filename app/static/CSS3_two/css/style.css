@@ -9,7 +9,7 @@ a:link {
 a:visited {
     color: #262a30;
     text-decoration: none;
-        font-weight: normal;
+    font-weight: normal;
 
 }
 
@@ -21,7 +21,6 @@ a:hover, a:active {
     font-weight: normal;
 
 }
-
 
 .nav {
     width: 40%;
@@ -43,11 +42,11 @@ article {
 }
 
 header {
-        margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
     padding-bottom: 0.5em;
     background: none;
-        /*color: rgb(150, 150, 150);*/
-        font-family: "Lato", "Verdana", sans-serif;
+    /*color: rgb(150, 150, 150);*/
+    font-family: "Lato", "Verdana", sans-serif;
 
 }
 
@@ -68,6 +67,7 @@ header {
     margin: 0 auto;
     padding-top: 40px;
 }
+
 .intro__head {
     text-align: center;
     padding-top: 40px;
@@ -88,19 +88,18 @@ footer {
     margin: 0 auto;
 }
 
-
 footer#site-footer {
-  font-family: 'lucida sans', sans-serif;
-  font-size: 90%;
-  height: 60px;
-  /*padding: 20px 0 5px 0;*/
-  text-align: center;
-  color: #A8AA94;
-  /*margin: 0 0 0 0;*/
+    font-family: 'lucida sans', sans-serif;
+    font-size: 90%;
+    height: 60px;
+    /*padding: 20px 0 5px 0;*/
+    text-align: center;
+    color: #A8AA94;
+    /*margin: 0 0 0 0;*/
 }
 
 .link-email {
- word-spacing: 10px;
+    word-spacing: 10px;
 }
 
 .link-github {
@@ -145,4 +144,7 @@ div.pagination a.prev {
 div.pagination a.next {
     position: absolute;
     left: 0;
+}
+#contentcode {
+    height: 444px;
 }
