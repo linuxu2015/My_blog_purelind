@@ -7,7 +7,7 @@ from pygments.lexers import get_lexer_by_name
 class HighlighterRenderer(m.HtmlRenderer):
     def blockcode(self, text, lang):
         if not lang:
-            lang = 'shell'
+            lang = 'bash'
             # return '\n<pre><code>{}</code></pre>\n'.format(text.strip())
         lexer = get_lexer_by_name(lang, stripall=True)
         formatter = HtmlFormatter(linenos='inline')
