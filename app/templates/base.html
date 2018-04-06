@@ -1,6 +1,5 @@
 <!DOCTYPE HTML>
 <html>
-
 {% block head %}
     <head>
 
@@ -16,12 +15,12 @@
 
         {#    <link rel="shortcut icon" href="{{ url_for('static', filename='CSS3_two/images/favicon.ico') }}">#}
         <link rel="stylesheet" href="{{ url_for('static', filename='CSS3_two/css/style.css') }}">
-{#        <link rel="stylesheet" href="{{ url_for('static', filename='CSS3_two/css/default.css') }}">#}
+        {#        <link rel="stylesheet" href="{{ url_for('static', filename='CSS3_two/css/default.css') }}">#}
         <link rel="stylesheet" href="{{ url_for('static', filename='CSS3_two/css/tomorrow-night.css') }}">
         <style type="text/css">
-            #contentcode {
-                height: 444px;
-            }
+
+
+
         </style>
         <script src="../static/CSS3_two/js/moment.min.js"></script>
         <script src="../static/CSS3_two/js/highlight.pack.js"></script>
@@ -86,11 +85,11 @@
         {% endblock %}
     {% endblock %}
     {% for message in get_flashed_messages() %}
-            <div class="alert alert-warning">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                {{ message }}
-            </div>
-        {% endfor %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
     {% block sitecontent %}
         {% block content %}
         {% endblock %}
