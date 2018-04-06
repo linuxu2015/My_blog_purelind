@@ -1,7 +1,7 @@
 {% extends  "base.html" %}
 
 {% block title %}
-   Purelind's blog
+    Purelind's blog
 {% endblock %}
 
 
@@ -9,46 +9,61 @@
 {% endblock %}
 
 {% block postcontent %}
-        <hr style="    border: 0;
+    <hr style="    border: 0;
     height: 1px;
     width: 60%;
     padding-top: 50px;
     background: #333;
     background-image: linear-gradient(to right, #ffffff, #ffffff, #ffffff);">
-<article>
-    <header>
-        <p style="padding-left: 2px">
-            {{ momentjs(post.created).format("LL") }}
-        </p>
-        <h2 class="title" style="padding-left: 2px"><b>{{ post.title }}</b></h2>
-    </header>
-    {% if post_html %}
-    {{ post_html|safe  }}
-    {% else %}
-    {{ post.body }}
-    {% endif %}
+    <article>
+        <header>
+            <p style="padding-left: 2px">
+                {{ momentjs(post.created).format("LL") }}
+            </p>
+            <h2 class="title" style="padding-left: 2px"><b>{{ post.title }}</b></h2>
+        </header>
+        {% if post_html %}
+            {{ post_html|safe }}
+        {% else %}
+            {{ post.body }}
+        {% endif %}
 
 
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'purelind-com'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        {#        <div id="disqus_thread"></div>#}
+        {#        <script type="text/javascript">#}
+        {#            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */#}
+        {#            var disqus_shortname = 'purelind-com'; // required: replace example with your forum shortname#}
+        {##}
+        {#            /* * * DON'T EDIT BELOW THIS LINE * * */#}
+        {#            (function () {#}
+        {#                var dsq = document.createElement('script');#}
+        {#                dsq.type = 'text/javascript';#}
+        {#                dsq.async = true;#}
+        {#                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';#}
+        {#                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);#}
+        {#            })();#}
+        {#        </script>#}
+        <div id="disqus_thread"></div>
+        <script>
+            (function () {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://linuxus-blog.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         <hr style="    border: 0;
-    height: 1px;
-{#    width: 60%;#}
-    background: #333;
-    background-image: linear-gradient(to right, #ccc, #ccc, #ccc);">
-</article>
+                height: 1px;
+                {#    width: 60%;#}
+                background: #333;
+                background-image: linear-gradient(to right, #ccc, #ccc, #ccc);">
+    </article>
+
+
+
 
 {% endblock %}
 
