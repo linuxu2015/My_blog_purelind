@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{{ url_for('static', filename='CSS3_two/images/favicon.ico')}}">
+    <link rel="icon" href="{{ url_for('static', filename='CSS3_two/images/favicon.ico') }}">
 
     <title>{% block title %}{% endblock %} | Purelind</title>
 
@@ -21,20 +21,25 @@
 {% endblock %}
 
 {% block page_content %}
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-warning">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% import "bootstrap/wtf.html" as wtf %}
 
-{% import "bootstrap/wtf.html" as wtf %}
+    <div class="container">
+        <div style="text-align: center; padding-top: 50px;padding-bottom: 40px">
+            <h1>Login</h1>
+        </div>
+        <div style="width: 400px; margin: auto">
+            {{ wtf.quick_form(form) }}
 
-<div class="container">
-    <div style="text-align: center; padding-top: 50px;padding-bottom: 40px">
-        <h1>Login</h1>
+        </div>
+        <!--<div class="g-recaptcha" data-sitekey="6LfC6ywUAAAAAAqTp_wMeQ84SFR5P6Jm6xKPwHv6"></div>-->
+
     </div>
-    <div style="width: 400px; margin: auto">
-        {{ wtf.quick_form(form) }}
-
-    </div>
-    <!--<div class="g-recaptcha" data-sitekey="6LfC6ywUAAAAAAqTp_wMeQ84SFR5P6Jm6xKPwHv6"></div>-->
-
-</div>
 
 
 
