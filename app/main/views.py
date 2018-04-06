@@ -9,7 +9,7 @@ from misaka import Markdown,HtmlRenderer
 from .. import db
 from ..models import Post
 import misaka as m
-#markdown
+from  markdown import markdown
 
 from .._pygments import HighlighterRenderer
 renderer = HighlighterRenderer()
@@ -35,7 +35,9 @@ def index():
 @main.route('/post/<int:id>', methods=['GET'])
 def post(id):
     post = Post.query.get_or_404(id)
-    post_html = md(post.body)
+    post_html = markdown(post.body, output_format='html5', \
+    extensions=['markdown.extensions.toc','markdown.extensions.fenced_code'])
+    # post_html = markdown(post.body)
     # print(post.body)
     return render_template('post.html', post_html=post_html,post=post)
 

@@ -10,7 +10,7 @@ class HighlighterRenderer(m.HtmlRenderer):
             lang = 'bash'
             # return '\n<pre><code>{}</code></pre>\n'.format(text.strip())
         lexer = get_lexer_by_name(lang, stripall=True)
-        formatter = HtmlFormatter(linenos='inline')
+        formatter = HtmlFormatter()
 
         return highlight(code=text, lexer=lexer, formatter=formatter)
 
