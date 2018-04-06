@@ -4,6 +4,7 @@ from flask_bootstrap import Bootstrap
 from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_misaka import Misaka
 from flask_assets import Environment, Bundle
 
 from config import config
@@ -13,8 +14,7 @@ from .momentjs import momentjs
 bootstrap = Bootstrap()
 mail = Mail()
 db = SQLAlchemy()  # db 是 class SQLAlchemy 的实例化对象, 包含了 SQLAlchemy 对数据库操作的支持类集.
-
-
+misaka = Misaka()
 # assets_env = Environment()
 # main_css = Bundle(
 #     'CSS3_two/css/style.css',
@@ -50,7 +50,7 @@ def create_app(config_name):
     mail.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)  # 初始化Flask-Login
-
+    misaka.init_app(app)
     # assets_env.init_app(app)
     # assets_env.register('main_js', main_js)
     # assets_env.register('main_css', main_css)

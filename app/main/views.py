@@ -35,7 +35,9 @@ def index():
 @main.route('/post/<int:id>', methods=['GET'])
 def post(id):
     post = Post.query.get_or_404(id)
-    return render_template('post.html', post=post)
+    post_html = md(post.body)
+    # print(post.body)
+    return render_template('post.html', post_html=post_html,post=post)
 
 
 @main.route('/about', methods=['GET'])

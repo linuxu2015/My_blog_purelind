@@ -10,10 +10,12 @@ from app.models import User, Post, Category, Tag, Role, Permission
 from flask_script import Manager, Shell
 from flask_migrate import Migrate, MigrateCommand
 from flask_assets import ManageAssets
+from flask_misaka import Misaka
 
 app = create_app(os.getenv('BLOG_CONFIG') or 'default')
 manager = Manager(app)
 migrate = Migrate(app, db)
+misaka = Misaka(app)
 
 
 def make_shell_context():

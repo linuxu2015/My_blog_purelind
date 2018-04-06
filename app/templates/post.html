@@ -22,8 +22,8 @@
         </p>
         <h2 class="title" style="padding-left: 2px"><b>{{ post.title }}</b></h2>
     </header>
-    {% if post.body_html %}
-    {{ post.body_html | safe }}
+    {% if post_html %}
+    {{ post_html|safe  }}
     {% else %}
     {{ post.body }}
     {% endif %}
