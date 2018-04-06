@@ -4,11 +4,18 @@ from flask_login import login_required
 
 from . import main
 from .forms import EditPostForm, PostForm
+from misaka import Markdown,HtmlRenderer
 
 from .. import db
 from ..models import Post
+import misaka as m
+#markdown
 
-from markdown import markdown
+from .._pygments import HighlighterRenderer
+renderer = HighlighterRenderer()
+md = m.Markdown(renderer=renderer, extensions=('fenced-code','highlight','tables','footnotes','autolink','strikethrough','underline','quote','superscript','math','space-headers',))
+
+
 from markdown.extensions.wikilinks import WikiLinkExtension
 
 
@@ -83,9 +90,7 @@ def edit(id):
     if form.validate_on_submit():
         post.title = form.title.data
         post.body = form.body.data
-        post.body_html = markdown(form.body.data, extensions=[
-            'markdown.extensions.extra',
-            'markdown.extensions.codehilite'])
+        post.body_html = md(post.body)
         post.outline = form.outline.data
         post.created = form.created.data
         post.modified = form.modified.data
@@ -104,14 +109,13 @@ def edit(id):
 @main.route('/create', methods=['GET', 'POST'])
 @login_required
 def create():
+    md = Markdown(HtmlRenderer())
     form = PostForm()
     post = Post()
     if form.validate_on_submit():
         post.title = form.title.data
         post.body = form.body.data
-        post.body_html = markdown(form.body.data, extensions=[
-                                      'markdown.extensions.extra',
-                                      'markdown.extensions.codehilite'])
+        post.body_html = md(post.body)
         post.outline = form.outline.data
         # post.created = form.created.data
         db.session.add(post)
