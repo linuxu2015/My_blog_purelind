@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, DateTimeField
 from flask_pagedown.fields import PageDownField
 from wtforms.validators import DataRequired, Length, Email
-
+from datetime import datetime
 
 class AdminLoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Length(1, 64), Email()])
@@ -27,5 +27,5 @@ class PostForm(FlaskForm):
     body = PageDownField("What's on your mind?")
     body_html = TextAreaField("Html")
     outline = StringField('Outline', validators=[Length(0, 64)])
-    # created = DateTimeField('Created')
+    created = DateTimeField('Created',default=datetime.now())
     submit = SubmitField('Submit')

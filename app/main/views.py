@@ -11,6 +11,7 @@ from ..models import Post
 import misaka as m
 from  markdown import markdown
 
+from datetime import datetime
 from .._pygments import HighlighterRenderer
 renderer = HighlighterRenderer()
 md = m.Markdown(renderer=renderer, extensions=('fenced-code','highlight','tables','footnotes','autolink','strikethrough','underline','quote','superscript','math','space-headers',))
@@ -96,7 +97,7 @@ def edit(id):
         post.body = form.body.data
         post.body_html = md(post.body)
         post.outline = form.outline.data
-        post.created = form.created.data
+        # post.created = form.created.data
         post.modified = form.modified.data
         db.session.add(post)
         flash('The post has been updated')
@@ -106,7 +107,7 @@ def edit(id):
     form.body_html.data = post.body_html
     form.outline.data = post.outline
     form.created.data = post.created
-    form.modified.data = post.modified
+    form.modified.data = datetime.now()
     return render_template('edit_post.html', form=form, post=post)
 
 
@@ -121,7 +122,7 @@ def create():
         post.body = form.body.data
         post.body_html = md(post.body)
         post.outline = form.outline.data
-        # post.created = form.created.data
+        post.created = datetime.now()
         db.session.add(post)
         return redirect(url_for('main.admin'))
     try:
