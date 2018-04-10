@@ -11,10 +11,10 @@
         <div style="margin: auto; width: 40%; border: 3px solid white; padding: 2px">
             <p>
                 <a href="/post/{{ post.id }}">
-                        {{ post.title }}
+                    {{ post.title }}
                 </a>
                 <span
-                    style="float: right; position: relative; font-weight: lighter;">{{ momentjs(post.created).format("LLL") }}
+                        style="float: right; position: relative; font-weight: lighter;">{{ momentjs(post.created).format("LLL") }}
                 </span>
             </p>
         </div>
@@ -22,23 +22,23 @@
     {% endfor %}
 
 
-        <hr style="    border: 0;
+    <hr style="    border: 0;
     height: 1px;
     width: 40%;
     background: #333;
     background-image: linear-gradient(to right, #ccc, #ccc, #ccc);">
 
-          <div class="pagination">
-    {% if pagination.has_prev %}
-      <a class="next" href="{{ url_for('main.index', page = pagination.page-1) }}">← Newer</a>
-    {% endif %}
+    <div class="pagination">
+        {% if pagination.has_prev %}
+            <a class="next" href="{{ url_for('main.index', page = pagination.page-1) }}">← Newer</a>
+        {% endif %}
 
-    {% if pagination.has_next %}
-      <a class="prev" href="{{ url_for('main.index', page = pagination.page+1) }}">Older →</a>
-    {% endif %}
-  </div>
+        {% if pagination.has_next %}
+            <a class="prev" href="{{ url_for('main.index', page = pagination.page+1) }}">Older →</a>
+        {% endif %}
+    </div>
 
-            <hr style="    border: 0;
+    <hr style="    border: 0;
     height: 1px;
     width: 40%;
     background: #333;
